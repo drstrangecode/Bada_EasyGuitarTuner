@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Application>
+    <Entry>GuitarTuner</Entry>
+    <Name>
+        <English>GuitarTuner</English>
+        <eng-GB>GuitarTuner</eng-GB>
+    </Name>
+    <Vendor>Francesco Rigoni</Vendor>
+    <Description>A simple guitar tuner</Description>
+    <Icons>
+        <MainMenu>GuitarTuner_type4.png<Type1/>
+            <Type2>GuitarTuner_type2.png</Type2>
+            <Type3>GuitarTuner_type3.png</Type3>
+            <Type4>GuitarTuner_type4.png</Type4>
+        </MainMenu>
+        <Setting/>
+        <Ticker/>
+        <QuickPanel/>
+        <LaunchImage>Splash_type4.png<Type1/>
+            <Type2>Splash_type2.png</Type2>
+            <Type3>Splash_type3.png</Type3>
+            <Type4>Splash_type4.png</Type4>
+        </LaunchImage>
+    </Icons>
+    <AutoScaling>
+        <Enabled>true</Enabled>
+        <BaseResolution>NormalSize</BaseResolution>
+    </AutoScaling>
+</Application>
