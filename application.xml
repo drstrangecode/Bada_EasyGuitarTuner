@@ -2,8 +2,8 @@
 <Application>
     <Entry>GuitarTuner</Entry>
     <Name>
-        <English>GuitarTuner</English>
-        <eng-GB>GuitarTuner</eng-GB>
+        <English>EG Tuner</English>
+        <eng-GB>EG Tuner</eng-GB>
     </Name>
     <Vendor>Francesco Rigoni</Vendor>
     <Description>A simple guitar tuner</Description>
