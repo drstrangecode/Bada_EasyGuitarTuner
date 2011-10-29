@@ -155,49 +155,30 @@ void MainForm::OnTouchReleased(const Osp::Ui::Control &source,
 		pPlayer = null;
 	}
 
-	result r = E_SUCCESS;
+	String toneFilePath;
+
+	if (currentPosition.x >= 58 && currentPosition.x <= 58 + 42)
+		toneFilePath = L"/Home/e.wav";
+	else if (currentPosition.x >= 122 && currentPosition.x <= 122 + 42)
+		toneFilePath = L"/Home/a.wav";
+	else if (currentPosition.x >= 188 && currentPosition.x <= 188 + 42)
+		toneFilePath = L"/Home/d.wav";
+	else if (currentPosition.x >= 255 && currentPosition.x <= 255 + 42)
+		toneFilePath = L"/Home/g.wav";
+	else if (currentPosition.x >= 314 && currentPosition.x <= 314 + 42)
+		toneFilePath = L"/Home/b.wav";
+	else if (currentPosition.x >= 381 && currentPosition.x <= 381 + 42)
+		toneFilePath = L"/Home/e1.wav";
 
 	/* Create the audio player */
 	pPlayer = new Player();
-	r = pPlayer->Construct(*this, 0);
-	if (IsFailed(r))
-		goto CATCH;
+	pPlayer->Construct(*this, 0);
 
 	/* Open file synchronously */
-
-	if (currentPosition.x >= 58 && currentPosition.x <= 58 + 42)
-		r = pPlayer->OpenFile(L"/Home/e.wav");
-	else if (currentPosition.x >= 122 && currentPosition.x <= 122 + 42)
-		r = pPlayer->OpenFile(L"/Home/a.wav");
-	else if (currentPosition.x >= 188 && currentPosition.x <= 188 + 42)
-		r = pPlayer->OpenFile(L"/Home/d.wav");
-	else if (currentPosition.x >= 255 && currentPosition.x <= 255 + 42)
-		r = pPlayer->OpenFile(L"/Home/g.wav");
-	else if (currentPosition.x >= 314 && currentPosition.x <= 314 + 42)
-		r = pPlayer->OpenFile(L"/Home/b.wav");
-	else if (currentPosition.x >= 381 && currentPosition.x <= 381 + 42)
-		r = pPlayer->OpenFile(L"/Home/e1.wav");
-
-	if (IsFailed(r))
-		goto CATCH;
-
-	r = pPlayer->SetLooping(pRepeatSwitch->IsSelected());
-	if (IsFailed(r))
-		goto CATCH;
-
-	r = pPlayer->SetVolume(100);
-	if (IsFailed(r))
-		goto CATCH;
-
-	r = pPlayer->Play();
-	if (IsFailed(r))
-		goto CATCH;
-
-	return;
-
-	CATCH: AppLog("Error message: %s", GetErrorMessage(r));
-	delete pPlayer;
-	pPlayer = null;
+	pPlayer->OpenFile(toneFilePath, false);
+	pPlayer->SetLooping(pRepeatSwitch->IsSelected());
+	pPlayer->SetVolume(100);
+	pPlayer->Play();
 
 }
 
