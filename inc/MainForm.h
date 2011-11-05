@@ -35,8 +35,7 @@ private:
 public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);
-	virtual void
-	OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 
 	/* IPlayerEventListener */
 	virtual void OnPlayerBuffering(int percent);

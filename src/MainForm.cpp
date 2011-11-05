@@ -31,7 +31,7 @@ result MainForm::OnDraw(void) {
 	Application * app = Application::GetInstance();
 	AppResource * res = app->GetAppResource();
 	Bitmap * pBitmap = res->GetBitmapN(L"strato_background.png",
-			BITMAP_PIXEL_FORMAT_ARGB8888);
+			                           BITMAP_PIXEL_FORMAT_ARGB8888);
 
 	pCanvas->DrawBitmap(rt, *pBitmap);
 
@@ -146,8 +146,6 @@ void MainForm::OnTouchReleased(const Osp::Ui::Control &source,
 		const Osp::Graphics::Point &currentPosition,
 		const Osp::Ui::TouchEventInfo &touchInfo) {
 
-	AppLog("MainForm::OnTouchReleased()");
-
 	if (pPlayer != null) {
 		pPlayer->Stop();
 		pPlayer->Close();
@@ -158,20 +156,31 @@ void MainForm::OnTouchReleased(const Osp::Ui::Control &source,
 	String toneFilePath;
 
 	if (currentPosition.x >= 58 && currentPosition.x <= 58 + 42)
+		/* Play the E tone */
 		toneFilePath = L"/Home/e.wav";
 	else if (currentPosition.x >= 122 && currentPosition.x <= 122 + 42)
+		/* Play the A tone */
 		toneFilePath = L"/Home/a.wav";
 	else if (currentPosition.x >= 188 && currentPosition.x <= 188 + 42)
+		/* Play the D tone */
 		toneFilePath = L"/Home/d.wav";
 	else if (currentPosition.x >= 255 && currentPosition.x <= 255 + 42)
+		/* Play the G tone */
 		toneFilePath = L"/Home/g.wav";
 	else if (currentPosition.x >= 314 && currentPosition.x <= 314 + 42)
+		/* Play the B tone */
 		toneFilePath = L"/Home/b.wav";
 	else if (currentPosition.x >= 381 && currentPosition.x <= 381 + 42)
+		/* Play the e tone */
 		toneFilePath = L"/Home/e1.wav";
+	else
+		/* Nothing to play */
+		return;
 
 	/* Create the audio player */
 	pPlayer = new Player();
+	/* Construct the audio player passing
+	 * the event listener as first parameter */
 	pPlayer->Construct(*this, 0);
 
 	/* Open file synchronously */
